@@ -16,9 +16,30 @@ def login():
          return render_template("application_form.html")
    return render_template('login.html',error = error)
 
-@app.route('/application_form')
-def application_form():
-   return render_template('application_form.html')
+
+@app.route('/application_form', methods = ['POST', 'GET'])
+def apply():
+   if request.method == 'POST':
+      apply = dict()
+      apply['Name'] = request.form.get('Name')
+      apply['StudentNumber'] = request.form.get('StudentNumber')
+      apply['Major'] = request.form.get('Major')
+      apply['Location'] = request.form.get('Location')
+      apply['Date'] = request.form.get('Date')
+      apply['Comment'] = request.form.get('Comment')
+      return render_template("application_form.html",apply = apply)
+
+@app.route('/result', methods = ['POST', 'GET'])
+def result():
+   if request.method == 'POST':
+      result = dict()
+      result['Name'] = request.form.get('Name')
+      result['StudentNumber'] = request.form.get('StudentNumber')
+      result['Major'] = request.form.get('Major')
+      result['Location'] = request.form.get('Location')
+      result['Date'] = request.form.get('Date')
+      result['Comment'] = request.form.get('Comment')
+      return render_template("result.html",result = result)
 
 if __name__ == '__main__':
    app.run(host="0.0.0.0", debug=True, port=80)
