@@ -29,17 +29,16 @@ def apply():
       apply['Comment'] = request.form.get('Comment')
       return render_template("application_form.html",apply = apply)
 
-@app.route('/result', methods = ['POST', 'GET'])
-def result():
-   if request.method == 'POST':
-      result = dict()
-      result['Name'] = request.form.get('Name')
-      result['StudentNumber'] = request.form.get('StudentNumber')
-      result['Major'] = request.form.get('Major')
-      result['Location'] = request.form.get('Location')
-      result['Date'] = request.form.get('Date')
-      result['Comment'] = request.form.get('Comment')
-      return render_template("result.html",result = result)
+@app.route('/submit', methods = ['POST', 'GET'])
+def submit():
+   uName = request.form.get('Name')
+   uStudentNumber = request.form.get('StudentNumber')
+   uMajor = request.form.get('Major')
+   uLocation = request.form.get('Location')
+   uDate = request.form.get('Date')
+   uComment = request.form.get('Comment')
+   
+   return render_template("submit.html",uName = uName, uStudentNumber = uStudentNumber, uMajor = uMajor, uLocation = uLocation, uDate = uDate, uComment = uComment)
 
 if __name__ == '__main__':
    app.run(host="0.0.0.0", debug=True, port=80)
