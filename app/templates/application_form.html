@@ -1,7 +1,32 @@
 <!doctype html>
 
 <html>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Dongguk-application</title>
+   </head>
+   <h1>강의실 대관 신청서</h1>
    <body>
-        <h1>강의실 대관 신청서</h1>
+        <form action = "/result" method = "POST">
+            <p>이름 <input type = "text" name = "Name" /></p>
+            <p>학번<input type = "text" name = "StudentNumber" /></p>
+            <p>학과 <input type = "text" name = "Major" /></p>
+            <p>대관할 건물</p>
+               <label><input type="radio" name="Location" value="명진관"/>명진관</label>
+               <label><input type="radio" name="Location" value="과학관"/>과학관</label>
+               <label><input type="radio" name="Location" value="원흥관"/>원흥관</label>
+               <label><input type="radio" name="Location" value="혜화관"/>혜화관</label>
+            <p>날짜</p>
+            <select name="Date">
+               <option value="2021-12-13" selected="selected">2021-12-13</option>
+               <option value="2021-12-14">2021-12-14</option>
+               <option value="2021-12-15">2021-12-15</option>
+               <option value="2021-12-16">2021-12-16</option>
+            </select>
+            <p>사용 용도</p>
+               <textarea name="Comment" cols="30" rows="10"></textarea>
+            <p><input type = "submit" value = "submit" /></p>
+         </form>
    </body>
 </html>
